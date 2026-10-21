@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Globe from 'react-globe.gl';
 
-import Button from '../components/Button.jsx';
+
 
 const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
@@ -18,10 +18,10 @@ const About = () => {
   return (
     <section className="c-space my-20" id="about">
       <p className="head-text mb-10">About Me</p>
-      <div className="grid xl:grid-cols-3 xl:grid-rows-2 md:grid-cols-1 grid-cols-1 gap-5 h-full">
-        <div className="col-span-1 xl:row-span-2">
+      <div className="about-grid">
+        <div className="about-intro">
           <div className="grid-container">
-            <img src="assets/grid1.png" alt="grid-1" className="w-[200px] sm:h-[276px] h-fit object-contain" />
+            <img src="assets/grid1.png" alt="grid-1" className="w-[200px] max-w-full sm:h-[276px] h-fit object-contain" />
 
             <div>
               <p className="grid-headtext">Hi, I’m Tong Wu</p>
@@ -32,7 +32,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="col-span-2 xl:row-span-1">
+        <div className="about-tech">
           <div className="grid-container">
             <img src="assets/grid2.png" alt="grid-2" className="w-full sm:h-[150px] h-fit object-contain" />
 
@@ -46,7 +46,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="col-span-1 xl:row-span-1">
+        <div className="about-location">
           <div className="grid-container">
             <div className="rounded-3xl w-full sm:h-[150px] h-fit flex justify-center items-center">
               <Globe
@@ -68,7 +68,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="xl:col-span-1 xl:row-span-1">
+        <div className="about-contact">
           <div className="grid-container">
             <img
               src="assets/grid4.png"
@@ -80,7 +80,7 @@ const About = () => {
               <p className="grid-subtext text-center">Contact me</p>
               <button type="button" className="copy-container" onClick={handleCopy} aria-label="Copy email address">
                 <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy" />
-                <span className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">tarynwux@gmail.com</span>
+                <span className="about-email font-medium text-gray_gradient text-white">tarynwux@gmail.com</span>
               </button>
             </div>
           </div>
