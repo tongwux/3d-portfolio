@@ -27,3 +27,11 @@ The hero no longer registers OrbitControls: wheel, pinch and drag cannot zoom th
 The optimized homepage model is public/models/hero-optimized.glb. Reproduce it with `node scripts/optimize-model.mjs` after npm ci. Original model retained for provenance. The About/globe code loads when approaching its section. Project links point to known repositories, tutorial testimonials and unrelated demo descriptions were removed, and the old ongoing job date is labeled as historical source information. Work-history claims remain user-supplied historical content, not independently verified employment records.
 
 The GitHub Actions build runs npm ci and npm run build. Commit source, lockfile and public assets as normal files; exclude dependencies and generated dist. The site remains a local preview until deployment is requested.
+
+## Dependency security maintenance (October 20, 2026)
+
+Updated the locked dependency tree and upgraded Vite to 6.4.5 and Tailwind CSS to 4.3.3 with its PostCSS adapter. npm audit reported 30 affected dependencies before this change (18 high, 9 moderate, 3 low), and zero after remediation. This is an audit of known npm advisories, not a guarantee against unknown vulnerabilities.
+
+`src/legacy-components.css` preserves the existing component geometry, colors, gradients, and sibling spacing across the Tailwind migration. Keep it when editing styles; the source and its dependencies no longer require Tailwind 3. Existing React/Three.js major versions and page behavior were retained.
+
+Run `npm run audit:security` to check the full dependency tree, including build tools. CI now runs this check before the production build.

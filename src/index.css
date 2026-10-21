@@ -1,8 +1,31 @@
 @import url('https://fonts.cdnfonts.com/css/general-sans');
+@import 'tailwindcss';
+@import './legacy-components.css';
+@config "../tailwind.config.js";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Preserve the Tailwind 3 visual defaults across the tooling migration. */
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: #e5e7eb;
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    letter-spacing: inherit;
+  }
+  button,
+  [role='button'] {
+    cursor: pointer;
+  }
+}
+@theme {
+  --default-ring-width: 3px;
+  --default-ring-color: #3b82f6;
+}
 
 * {
   scroll-behavior: smooth;
@@ -13,142 +36,148 @@ body {
   font-family: 'General Sans', sans-serif;
 }
 
-@layer utilities {
-  .c-space {
-    @apply sm:px-10 px-5;
-  }
+@utility c-space {
+  @apply sm:px-10 px-5;
+}
 
-  .head-text {
-    @apply sm:text-4xl text-3xl font-semibold text-gray_gradient;
-  }
+@utility head-text {
+  @apply sm:text-4xl text-3xl font-semibold text-gray_gradient;
+}
 
-  .nav-ul {
-    @apply flex flex-col items-center gap-4 sm:flex-row md:gap-6 relative z-20;
-  }
+@utility nav-ul {
+  @apply flex flex-col items-center gap-4 sm:flex-row md:gap-6 relative z-20;
+}
 
-  .nav-li {
-    @apply text-neutral-400 hover:text-white font-generalsans max-sm:hover:bg-black-500 max-sm:w-full max-sm:rounded-md py-2 max-sm:px-5;
-  }
+@utility nav-li {
+  @apply text-neutral-400 hover:text-white font-generalsans max-sm:hover:bg-black-500 max-sm:w-full max-sm:rounded-md py-2 max-sm:px-5;
+}
 
-  .nav-li_a {
-    @apply text-lg md:text-base hover:text-white transition-colors;
-  }
+@utility nav-li_a {
+  @apply text-lg md:text-base hover:text-white transition-colors;
+}
 
-  .nav-sidebar {
-    @apply absolute left-0 right-0 bg-black-200 backdrop-blur-sm transition-all duration-300 ease-in-out overflow-hidden z-20 mx-auto sm:hidden block;
-  }
+@utility nav-sidebar {
+  @apply absolute left-0 right-0 bg-black-200 backdrop-blur-sm transition-all duration-300 ease-in-out overflow-hidden z-20 mx-auto sm:hidden block;
+}
 
-  .text-gray_gradient {
-    @apply bg-gradient-to-r from-[#BEC1CF] from-60% via-[#D5D8EA] via-60% to-[#D5D8EA] to-100% bg-clip-text text-transparent;
-  }
+@utility text-gray_gradient {
+  @apply bg-gradient-to-r from-[#BEC1CF] from-60% via-[#D5D8EA] via-60% to-[#D5D8EA] to-100% bg-clip-text text-transparent;
+}
 
-  /* button component */
-  .btn {
-    @apply flex gap-4 items-center justify-center cursor-pointer p-3 rounded-md bg-black-300  transition-all active:scale-95 text-white mx-auto;
-  }
+/* button component */
 
-  .btn-ping {
-    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75;
-  }
+@utility btn {
+  @apply flex gap-4 items-center justify-center cursor-pointer p-3 rounded-md bg-black-300  transition-all active:scale-95 text-white mx-auto;
+}
 
-  .btn-ping_dot {
-    @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
-  }
+@utility btn-ping {
+  @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75;
+}
 
-  /* hero section */
-  .hero_tag {
-    @apply text-center xl:text-6xl md:text-5xl sm:text-4xl text-3xl font-generalsans font-black !leading-normal;
-  }
+@utility btn-ping_dot {
+  @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
+}
 
-  /* about section */
-  .grid-container {
-    @apply w-full h-full border border-black-300 bg-black-200 rounded-lg sm:p-7 p-4 flex flex-col gap-5;
-  }
+/* hero section */
 
-  .grid-headtext {
-    @apply text-xl font-semibold mb-2 text-white font-generalsans;
-  }
+@utility hero_tag {
+  @apply text-center xl:text-6xl md:text-5xl sm:text-4xl text-3xl font-generalsans font-black !leading-normal;
+}
 
-  .grid-subtext {
-    @apply text-[#afb0b6] text-base font-generalsans;
-  }
+/* about section */
 
-  .copy-container {
-    @apply cursor-pointer flex justify-center items-center gap-2;
-  }
+@utility grid-container {
+  @apply w-full h-full border border-black-300 bg-black-200 rounded-lg sm:p-7 p-4 flex flex-col gap-5;
+}
 
-  /* projects section  */
-  .arrow-btn {
-    @apply w-10 h-10 p-3 cursor-pointer active:scale-95 transition-all rounded-full arrow-gradient;
-  }
+@utility grid-headtext {
+  @apply text-xl font-semibold mb-2 text-white font-generalsans;
+}
 
-  .tech-logo {
-    @apply w-10 h-10 rounded-md p-2 bg-neutral-100 bg-opacity-10 backdrop-filter backdrop-blur-lg flex justify-center items-center;
-  }
+@utility grid-subtext {
+  @apply text-[#afb0b6] text-base font-generalsans;
+}
 
-  /* clients section */
-  .client-container {
-    @apply grid md:grid-cols-2 grid-cols-1 gap-5 mt-12;
-  }
+@utility copy-container {
+  @apply cursor-pointer flex justify-center items-center gap-2;
+}
 
-  .client-review {
-    @apply rounded-lg md:p-10 p-5 col-span-1 bg-black-300 bg-opacity-50;
-  }
+/* projects section  */
 
-  .client-content {
-    @apply flex lg:flex-row flex-col justify-between lg:items-center items-start gap-5 mt-7;
-  }
+@utility arrow-btn {
+  @apply w-10 h-10 p-3 cursor-pointer active:scale-95 transition-all rounded-full arrow-gradient;
+}
 
-  /*  work experience section */
-  .work-container {
-    @apply grid lg:grid-cols-3 grid-cols-1 gap-5 mt-12;
-  }
+@utility tech-logo {
+  @apply w-10 h-10 rounded-md p-2 bg-neutral-100/10 backdrop-blur-lg flex justify-center items-center;
+}
 
-  .work-canvas {
-    @apply col-span-1 rounded-lg bg-black-200 border border-black-300;
-  }
+/* clients section */
 
-  .work-content {
-    @apply col-span-2 rounded-lg bg-black-200 border border-black-300;
-  }
+@utility client-container {
+  @apply grid md:grid-cols-2 grid-cols-1 gap-5 mt-12;
+}
 
-  .work-content_container {
-    @apply grid grid-cols-[auto_1fr] items-start gap-5  transition-all ease-in-out duration-500 cursor-pointer hover:bg-black-300 rounded-lg sm:px-5 px-2.5;
-  }
+@utility client-review {
+  @apply rounded-lg md:p-10 p-5 col-span-1 bg-black-300/50;
+}
 
-  .work-content_logo {
-    @apply rounded-3xl w-16 h-16 p-2 bg-black-600;
-  }
+@utility client-content {
+  @apply flex lg:flex-row flex-col justify-between lg:items-center items-start gap-5 mt-7;
+}
 
-  .work-content_bar {
-    @apply flex-1 w-0.5 mt-4 h-full bg-black-300 group-hover:bg-black-500 group-last:hidden;
-  }
+/*  work experience section */
 
-  /* contact section */
-  .contact-container {
-    @apply max-w-xl relative z-10 sm:px-10 px-5 mt-12;
-  }
+@utility work-container {
+  @apply grid lg:grid-cols-3 grid-cols-1 gap-5 mt-12;
+}
 
-  .field-label {
-    @apply text-lg text-white-600;
-  }
+@utility work-canvas {
+  @apply col-span-1 rounded-lg bg-black-200 border border-black-300;
+}
 
-  .field-input {
-    @apply w-full bg-black-300 px-5 py-2 min-h-14 rounded-lg placeholder:text-white-500 text-lg text-white-800 shadow-black-200 shadow-2xl focus:outline-none;
-  }
+@utility work-content {
+  @apply col-span-2 rounded-lg bg-black-200 border border-black-300;
+}
 
-  .field-btn {
-    @apply bg-black-500 px-5 py-2 min-h-12 rounded-lg shadow-black-200 shadow-2xl flex justify-center items-center text-lg text-white gap-3;
-  }
+@utility work-content_container {
+  @apply grid grid-cols-[auto_1fr] items-start gap-5  transition-all ease-in-out duration-500 cursor-pointer hover:bg-black-300 rounded-lg sm:px-5 px-2.5;
+}
 
-  .field-btn_arrow {
-    @apply w-2.5 h-2.5 object-contain invert brightness-0;
-  }
+@utility work-content_logo {
+  @apply rounded-3xl w-16 h-16 p-2 bg-black-600;
+}
 
-  /*  footer */
-  .social-icon {
-    @apply w-12 h-12 rounded-full flex justify-center items-center bg-black-300 border border-black-200;
-  }
+@utility work-content_bar {
+  @apply flex-1 w-0.5 mt-4 h-full bg-black-300 group-hover:bg-black-500 group-last:hidden;
+}
+
+/* contact section */
+
+@utility contact-container {
+  @apply max-w-xl relative z-10 sm:px-10 px-5 mt-12;
+}
+
+@utility field-label {
+  @apply text-lg text-white-600;
+}
+
+@utility field-input {
+  @apply w-full bg-black-300 px-5 py-2 min-h-14 rounded-lg placeholder:text-white-500 text-lg text-white-800 shadow-black-200 shadow-2xl focus:outline-none;
+}
+
+@utility field-btn {
+  @apply bg-black-500 px-5 py-2 min-h-12 rounded-lg shadow-black-200 shadow-2xl flex justify-center items-center text-lg text-white gap-3;
+}
+
+@utility field-btn_arrow {
+  @apply w-2.5 h-2.5 object-contain invert brightness-0;
+}
+
+/*  footer */
+
+@utility social-icon {
+  @apply w-12 h-12 rounded-full flex justify-center items-center bg-black-300 border border-black-200;
 }
 
 .waving-hand {
@@ -159,7 +188,7 @@ body {
   display: inline-block;
 }
 
-.arrow-gradient {
+@utility arrow-gradient {
   background-image: linear-gradient(
     to right,
     rgba(255, 255, 255, 0.1) 10%,
@@ -169,11 +198,9 @@ body {
   );
 }
 
-.hero_tag-pink
-{
-  color: #FF5EA4; /* Sets the text color to the pink shade */
+.hero_tag-pink {
+  color: #ff5ea4; /* Sets the text color to the pink shade */
 }
-
 
 @keyframes wave-animation {
   0% {
@@ -203,5 +230,16 @@ body {
 }
 
 /* The page owns all wheel and touch gestures, including over the 3D preview. */
-.hero-canvas, .hero-canvas canvas { pointer-events: none !important; touch-action: pan-y !important; }
-@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } .waving-hand { animation: none !important; } }
+.hero-canvas,
+.hero-canvas canvas {
+  pointer-events: none !important;
+  touch-action: pan-y !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+  .waving-hand {
+    animation: none !important;
+  }
+}
