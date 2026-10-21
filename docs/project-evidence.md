@@ -21,3 +21,7 @@ Repository links are the public URLs attached to each portfolio card. Trade Tita
 6. **DeepStudy:** broader scope and many unimplemented integration claims. First deliver one working teacher conversation end to end; postpone multi-agent orchestration and voice expansion.
 
 Empty repositories and course-only submissions should not displace these projects as flagship portfolio entries. The restored 3D portfolio is a useful deployed frontend example, but complements rather than replaces a tested backend project. These are recommendations based on this code review, not hiring-outcome guarantees.
+
+## AI-focused applications
+
+For junior AI-product or AI-platform roles, prioritize one implemented AI workflow alongside the strongest conventional backend project. A bounded DeepStudy rebuild (material upload, retrieval with citations, teacher answers, explicit failure handling and a small evaluation set) is a plausible AI flagship after implementation. Trade Titan remains the domain/backend flagship. ChatterSphere or ZYMO can be a supporting third project. Existing non-AI prototypes should retain their current labels until model-backed behavior is implemented and measured.
