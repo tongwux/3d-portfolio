@@ -366,3 +366,9 @@
     margin-bottom: 0;
   }
 }
+
+/* Use explicit stops so v4 gradient variables cannot change the original colors. */
+.text-gray_gradient,
+.head-text {
+  background-image: linear-gradient(to right, #bec1cf 60%, #d5d8ea 60%, #d5d8ea 100%);
+}
