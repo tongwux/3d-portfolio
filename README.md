@@ -1,41 +1,29 @@
-# 3D Portfolio — Setup in Progress
+# Tong Wu — restored 3D portfolio
 
-An early repository for a Three.js portfolio experiment.
+Restored from C:/Projects/portfolio/threejs-portfolio on October 20, 2026. The original source directory is unchanged.
 
-**Current status:** incomplete source export. The published snapshot is not yet a reproducible portfolio application.
+## Run locally
 
-## Present in the repository
+Use Node.js 20 or later:
 
-- Root `package.json` declaring Three.js `^0.173.0`.
-- Package lockfile and tracked dependency files in `node_modules/`.
-- A `threejs-portfolio` gitlink referencing commit `c1eff6316a6f1becc11ec98662d27c61879552b5`.
+    npm ci
+    npm run dev -- --host 127.0.0.1 --port 4179
 
-## Missing or unverified
+## Build
 
-- The gitlink does not include application source in a normal clone.
-- No `.gitmodules` file provides a URL for restoring it as a submodule.
-- The root package has no development, build, or test scripts.
-- Scene interaction, animation, responsive behavior, and a live demo cannot be verified from this snapshot.
-- No specific mock interaction can be documented without the application source.
+    npm run build
+    npm run preview -- --host 127.0.0.1 --port 4179
 
-## Inspect locally
+Source is in src/, and original models, textures, audio and images are in public/. Keep these as ordinary tracked files when restoring GitHub; do not commit node_modules or a nested repository/gitlink.
 
-```sh
-git clone https://github.com/tongwux/3d-portfolio.git
-cd 3d-portfolio
-git ls-files --stage threejs-portfolio
-```
+Recovery fixes: restored complete source and local assets; made project cards single-column on small screens; corrected the email-copy target; replaced the unconfigured tutorial EmailJS integration with an explicit email-draft action using the address displayed in the original local page; fixed the Contact anchor; removed an expired internship sentence and corrected the globe label.
 
-This downloads the published snapshot only. Installing Three.js does not restore the missing application, and `npm run dev` is not defined. No working application launch command is currently documented.
+Existing project descriptions and external links were retained and should be reviewed before public publication. Contact opens a local email client and does not send messages from a server. Google fonts and globe imagery still require network access.
 
-## Planned repair — not implemented
+## Engineering fixes
 
-1. Restore the original application source as ordinary tracked files, or configure an accessible submodule.
-2. Remove installed dependencies from version control and add ignore rules.
-3. Define development/build scripts and document a tested runtime.
-4. Add an actual screenshot, live preview, and implementation notes once the application is reproducible.
-5. Add build validation before presenting it as a finished portfolio project.
+The hero no longer registers OrbitControls: wheel, pinch and drag cannot zoom the camera or trap page scrolling. It uses a fixed camera and renders only while the hero is visible, with a pixel-ratio cap and reduced-motion support. A local static poster remains visible during loading and when WebGL is unavailable; scene errors expose a retry action. Audio loads only after an explicit click.
 
-## Scope
+The optimized homepage model is public/models/hero-optimized.glb. Reproduce it with `node scripts/optimize-model.mjs` after npm ci. Original model retained for provenance. The About/globe code loads when approaching its section. Project links point to known repositories, tutorial testimonials and unrelated demo descriptions were removed, and the old ongoing job date is labeled as historical source information. Work-history claims remain user-supplied historical content, not independently verified employment records.
 
-The current files show project setup rather than a completed 3D experience. Third-party Three.js files retain their own license terms; this README grants no additional license.
+The GitHub Actions build runs npm ci and npm run build. Commit source, lockfile and public assets as normal files; exclude dependencies and generated dist. The site remains a local preview until deployment is requested.
