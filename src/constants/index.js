@@ -25,89 +25,133 @@ export const clientReviews = [];
 
 export const myProjects = [
   {
-    title: 'ChatterSphere - Real-Time Message Tool',
-    desc: "A messaging application project. Explore its implementation and documentation in the source repository.",
-    subdesc: '',
-    href: "https://github.com/tongwux/ChatterSphere",
-    isLive: true,
-    texture: '/textures/project/project2.mp4',
-    logo: '/assets/project-logo2.png',
-    logoStyle: {
-      backgroundColor: '#13202F',
-      border: '0.2px solid #17293E',
-      boxShadow: '0px 0px 60px 0px #2F6DB54D',
+    "title": "ChatterSphere",
+    "desc": "A one-to-one messaging application combining persisted conversations with live delivery and online-user presence.",
+    "subdesc": "",
+    "href": "https://github.com/tongwux/ChatterSphere",
+    "isLive": false,
+    "texture": "/textures/project/project2.mp4",
+    "logo": "/assets/project-logo2.png",
+    "logoStyle": {
+      "backgroundColor": "#13202F",
+      "border": "0.2px solid #17293E",
+      "boxShadow": "0px 0px 60px 0px #2F6DB54D"
     },
-    spotlight: '/assets/spotlight2.png',
-    tags: [
-      { id: 1, name: 'React.js', path: '/assets/react.svg' },
-      { id: 2, name: 'TailwindCSS', path: '/assets/tailwindcss.png' },
-      { id: 3, name: 'TypeScript', path: '/assets/typescript.png' },
-      { id: 4, name: 'Framer Motion', path: '/assets/framer.png' },
+    "spotlight": "/assets/spotlight2.png",
+    "tags": [],
+    "category": "Full-stack web · learning project",
+    "features": [
+      "Account signup, JWT cookie sessions and protected HTTP routes",
+      "MongoDB conversation history, live Socket.io messages and presence",
+      "React Context for sessions; Zustand for conversation selection"
     ],
+    "stack": [
+      "React",
+      "JavaScript",
+      "Vite",
+      "Tailwind CSS / DaisyUI",
+      "Node.js / Express",
+      "MongoDB / Mongoose",
+      "Socket.io",
+      "JWT / bcrypt"
+    ],
+    "scope": "Tutorial-based learning project. Group chat is not implemented; socket authentication and production hardening remain next steps."
   },
   {
-    title: 'Trade Titan - MERN Stock Trading System',
-    desc: "A stock trading application experiment from my earlier portfolio.",
-    subdesc: '',
-    href: "",
-    isLive: false,
-    texture: '/textures/project/project1.mp4',
-    logo: '/assets/stock.png',
-    logoStyle: {
-      backgroundColor: '#2A1816',
-      border: '0.2px solid #36201D',
-      boxShadow: '0px 0px 60px 0px #AA3C304D',
+    "title": "Trade Titan",
+    "reference": {"title":"MERN trading-platform reference · Zerodha course project","href":"https://github.com/apna-college/Zerodha"},
+    "plannedStack": ["MongoDB", "Express", "React", "Node.js"],
+    "desc": "Growing a personal US-stock research desk into a trading application. The existing tool brings market research, watchlists and manually recorded fills into one workspace.",
+    "subdesc": "",
+    "href": "",
+    "isLive": false,
+    "texture": "/textures/project/project1.mp4",
+    "logo": "/assets/stock.png",
+    "logoStyle": {
+      "backgroundColor": "#2A1816",
+      "border": "0.2px solid #36201D",
+      "boxShadow": "0px 0px 60px 0px #AA3C304D"
     },
-    spotlight: '/assets/spotlight1.png',
-    tags: [
-      { id: 1, name: 'React.js', path: '/assets/react.svg' },
-      { id: 2, name: 'TailwindCSS', path: '/assets/tailwindcss.png' },
-      { id: 3, name: 'TypeScript', path: '/assets/typescript.png' },
-      { id: 4, name: 'Framer Motion', path: '/assets/framer.png' },
+    "spotlight": "/assets/spotlight1.png",
+    "tags": [],
+    "category": "Personal stock desk · trading app in development",
+    "features": [
+      "TradingView market charts, grouped watchlists and earnings information",
+      "Server routes for watchlist persistence and quote retrieval",
+      "Manual trade records and position valuation from entered fills"
     ],
+    "stack": [
+      "React 19",
+      "TypeScript",
+      "Next.js / Vinext",
+      "Cloudflare Workers",
+      "Cloudflare D1",
+      "TradingView widgets"
+    ],
+    "scope": "Current foundation: the personal Stock Desk. Broker connectivity, automated order execution and a public source repository are not part of the current implementation.",
+    "sourceLabel": "Private project"
   },
   {
-    title: 'Somni.AI - AI Sleep Coach',
-    desc: "A sleep-focused application project. Explore the source repository for its current implementation.",
-    subdesc: '',
-    href: "https://github.com/tongwux/Somni_Sleep",
-    isLive: true,
-    texture: '/textures/project/project3.mp4',
-    logo: '/assets/Sleep.png',
-    logoStyle: {
-      backgroundColor: 'rgba(35, 131, 96, 0.15)',
-      border: '0.2px solid rgba(7, 70, 47, 0.19)',
-      boxShadow: '0px 0px 60px 0px rgba(35, 131, 96, 0.3)',
+    "title": "Somni Sleep",
+    "desc": "A SwiftUI prototype exploring a calmer bedtime routine through a sleep dashboard, scheduling, ambient audio and a conversational coach interface.",
+    "subdesc": "",
+    "href": "https://github.com/tongwux/Somni_Sleep",
+    "isLive": false,
+    "texture": "/textures/project/project3.mp4",
+    "logo": "/assets/Sleep.png",
+    "logoStyle": {
+      "backgroundColor": "rgba(35, 131, 96, 0.15)",
+      "border": "0.2px solid rgba(7, 70, 47, 0.19)",
+      "boxShadow": "0px 0px 60px 0px rgba(35, 131, 96, 0.3)"
     },
-    spotlight: '/assets/spotlight3.png',
-    tags: [
-      { id: 1, name: 'React.js', path: '/assets/react.svg' },
-      { id: 2, name: 'TailwindCSS', path: '/assets/tailwindcss.png' },
-      { id: 3, name: 'TypeScript', path: '/assets/typescript.png' },
-      { id: 4, name: 'Framer Motion', path: '/assets/framer.png' },
+    "spotlight": "/assets/spotlight3.png",
+    "tags": [],
+    "category": "Native iOS · wellness prototype",
+    "features": [
+      "SwiftUI onboarding, tab navigation and reusable dashboard cards",
+      "Looping AVFoundation playback with volume and stop-timer controls",
+      "URLSession request service and a dedicated Keychain credential manager"
     ],
+    "stack": [
+      "Swift",
+      "SwiftUI",
+      "AVFoundation",
+      "URLSession",
+      "Keychain",
+      "AppStorage"
+    ],
+    "scope": "Sleep records are simulated. Coach networking is scaffolded but its credential initialization still needs repair; no HealthKit or sensor-based tracking is implemented."
   },
   {
-    title: ' MysticAI Tarot - AI Tarot Reading App',
-    desc: "An AI tarot reading experiment. Explore its implementation and documentation on GitHub.",
-    subdesc: '',
-    href: "https://github.com/tongwux/ai-tarot-reading",
-    isLive: true,
-    texture: '/textures/project/project3.mp4',
-    logo: '/assets/tarot.png',
-    logoStyle: {
-      backgroundColor: 'rgba(191, 62, 250, 0.15)',
-      border: '0.2px solid rgba(182, 33, 251, 0.19)',
-      boxShadow: '0px 0px 60px 0px rgba(168, 74, 212, 0.3)',
+    "title": "Tarot Reading",
+    "desc": "An animated three-card reading experience focused on selection, reveal transitions and a responsive card-based interface.",
+    "subdesc": "",
+    "href": "https://github.com/tongwux/ai-tarot-reading",
+    "isLive": false,
+    "texture": "/textures/project/project3.mp4",
+    "logo": "/assets/tarot.png",
+    "logoStyle": {
+      "backgroundColor": "rgba(191, 62, 250, 0.15)",
+      "border": "0.2px solid rgba(182, 33, 251, 0.19)",
+      "boxShadow": "0px 0px 60px 0px rgba(168, 74, 212, 0.3)"
     },
-    spotlight: '/assets/spotlight5.png',
-    tags: [
-      { id: 1, name: 'React.js', path: '/assets/react.svg' },
-      { id: 2, name: 'TailwindCSS', path: '/assets/tailwindcss.png' },
-      { id: 3, name: 'TypeScript', path: '/assets/typescript.png' },
-      { id: 4, name: 'Framer Motion', path: '/assets/framer.png' },
+    "spotlight": "/assets/spotlight5.png",
+    "tags": [],
+    "category": "Interactive frontend · prototype",
+    "features": [
+      "Select three distinct cards from a configured 21-card deck",
+      "Shuffle, hover and reveal transitions with Framer Motion",
+      "Typed card components, image fallbacks and local reading text"
     ],
-  },
+    "stack": [
+      "Next.js 14",
+      "React",
+      "TypeScript",
+      "Framer Motion",
+      "Tailwind CSS"
+    ],
+    "scope": "The current reading text is a local lookup, with no AI model call, account system or saved-reading backend."
+  }
 ];
 
 
