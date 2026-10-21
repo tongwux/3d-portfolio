@@ -1,13 +1,25 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera, useGLTF } from '@react-three/drei';
 import { easing } from 'maath';
 import { useFrame } from '@react-three/fiber';
 function Model({ reduced, onReady, attempt }) {
   const { scene } = useGLTF(`/models/hero-optimized.glb?attempt=${attempt}`);
+  const pointer=useRef([0,0]);
   useEffect(() => { onReady(true); }, [onReady]);
+  useEffect(() => {
+    const hero=document.getElementById('home');
+    const move=(event) => {
+      const box=hero.getBoundingClientRect();
+      pointer.current=[(event.clientX-box.left)/box.width*2-1,-((event.clientY-box.top)/box.height*2-1)];
+    };
+    const leave=() => {pointer.current=[0,0];};
+    hero.addEventListener('pointermove',move,{passive:true});
+    hero.addEventListener('pointerleave',leave);
+    return () => {hero.removeEventListener('pointermove',move);hero.removeEventListener('pointerleave',leave);};
+  }, []);
   useFrame((state, delta) => {
-    if (!reduced) { easing.dampE(scene.rotation, [-state.pointer.y / 12, state.pointer.x / 12, 0], .25, delta); }
+    if (!reduced) { easing.dampE(scene.rotation, [-pointer.current[1] / 12, pointer.current[0] / 12, 0], .25, delta); }
   });
   return <primitive object={scene} scale={[1.2,1.2,1.2]} position={[2,-5,0]} />;
 }
