@@ -158,4 +158,3 @@ export const workExperiences = [
     animation: 'salute',
   },
 ];
-

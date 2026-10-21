@@ -28,4 +28,3 @@ export default function HeroScene({ onReady, attempt }) {
     <ambientLight intensity={1} /><directionalLight position={[10,10,10]} intensity={.5} />
   </Canvas>;
 }
-

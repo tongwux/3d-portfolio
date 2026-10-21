@@ -12,7 +12,7 @@ const WorkExperience = () => {
   return (
     <section className="c-space my-20" id="work">
       <div className="w-full text-white-600">
-        
+
         <div className="grid xl:grid-cols-3 md:grid-cols-3 grid-cols-1 gap-5 h-full">
 
           <div className="col-span-1 bg-black-200 p-4 rounded-xl"> {/* Added rounded-xl for rounded corners */}
@@ -36,14 +36,14 @@ const WorkExperience = () => {
                 applications
               </p>
             </div>
-            <div className="sm:py-5 py-5 sm:px-5 px-2.5"> 
+            <div className="sm:py-5 py-5 sm:px-5 px-2.5">
               {/* Additional content could be mapped similarly if needed */}
             </div>
           </div>
 
           <div className="col-span-2 bg-black-200 p-4 rounded-xl"> {/* Added rounded-xl for rounded corners */}
             <p className="head-text py-10 px-4">Work Experience</p>
-            <div className="sm:py-5 py-5 sm:px-0 px-2.5"> 
+            <div className="sm:py-5 py-5 sm:px-0 px-2.5">
               {workExperiences.map((item, index) => (
                 <div
                   key={index}
@@ -67,7 +67,7 @@ const WorkExperience = () => {
                 </div>
               ))}
             </div>
-            
+
 
 
 
@@ -87,4 +87,3 @@ const WorkExperience = () => {
 };
 
 export default WorkExperience;
-

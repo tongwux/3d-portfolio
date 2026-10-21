@@ -10,5 +10,3 @@ export default function DeferredAbout() {
   },[]);
   return <div id="about-anchor" ref={ref} style={{minHeight:650}}><Suspense fallback={<p className="c-space text-white-600">Loading about section…</p>}>{ready && <About />}</Suspense></div>;
 }
-
-

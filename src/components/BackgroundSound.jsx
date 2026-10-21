@@ -6,7 +6,7 @@ const BackgroundSound = ({ soundUrl }) => {
     useEffect(() => {
         audioRef.current = new Audio(soundUrl);
         audioRef.current.loop = true;
-        
+
         // Autoplay the sound, handling the promise to catch errors
         audioRef.current.play().catch((error) => console.error('Error playing sound:', error));
 

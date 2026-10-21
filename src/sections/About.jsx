@@ -26,7 +26,7 @@ const About = () => {
             <div>
               <p className="grid-headtext">Hi, I’m Tong Wu</p>
               <p className="grid-subtext">
-                Motivated and detail-oriented full-stack developer with hands-on experience on web development. Proficient in front-end and back-end, with a strong foundation in frameworks, databases, and scalable solutions.  
+                Motivated and detail-oriented full-stack developer with hands-on experience on web development. Proficient in front-end and back-end, with a strong foundation in frameworks, databases, and scalable solutions.
               </p>
             </div>
           </div>
@@ -91,5 +91,3 @@ const About = () => {
 };
 
 export default About;
-
-
