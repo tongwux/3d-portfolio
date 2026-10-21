@@ -1,7 +1,9 @@
 @import url('https://fonts.cdnfonts.com/css/general-sans');
-@import 'tailwindcss';
+@import 'tailwindcss' source(none);
 @import './legacy-components.css';
 @config "../tailwind.config.js";
+@source "./";
+@source "../index.html";
 
 /* Preserve the Tailwind 3 visual defaults across the tooling migration. */
 @layer base {
